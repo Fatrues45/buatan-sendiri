@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu 💌</title>
+    <style>
+        /* Styling Umum */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #fff;
+            background: url('URL_FOTO_KAMU') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        /* Overlay Gelap */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Kontainer Input Nama */
+        #formNama {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e63950;
+        }
+
+        /* Konten Utama */
+        #kontenUtama {
+            display: none;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1, p {
+            margin: 10px;
+        }
+
+        #pesanRahasia {
+            display: none;
+            color: #ffd1da;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <!-- Form Input Nama -->
+    <div id="formNama">
+        <h1>cobaa ketikin nama kamuu😋</h1>
+        <input type="text" id="namaPasangan" placeholder="Nama kamu di sini..." />
+        <br>
+        <button onclick="masukHalaman()">Lanjut</button>
+    </div>
+
+    <!-- Konten Utama -->
+    <div id="kontenUtama">
+        <h1 id="sapaan"></h1>
+        <p>Aku punya sesuatu yang spesial buat kamu...</p>
+        <button onclick="tampilkanPesan()">pencet inii</button>
+        <p id="pesanRahasia">Kamu adalah alasan aku bahagia setiap hari. ❤️</p>
+    </div>
+
+    <!-- Musik Latar -->
+    <audio autoplay loop>
+        <source src="URL_MUSIK_KAMU" type="audio/mp3">
+        Browser kamu tidak mendukung pemutar musik.
+    </audio>
+
+    <!-- Script Interaktif -->
+    <script>
+        function masukHalaman() {
+            const nama = document.getElementById('namaPasangan').value;
+            if (nama.trim() !== "") {
+                document.getElementById('formNama').style.display = 'none';
+                document.getElementById('kontenUtama').style.display = 'block';
+                document.getElementById('sapaan').innerText = `sayangku ${nama}! 💖`;
+            } else {
+                alert("Tolong masukkan namamu dulu ya! 😊");
+            }
+        }
+
+        function tampilkanPesan() {
+            document.getElementById('pesanRahasia').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
